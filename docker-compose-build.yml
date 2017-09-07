@@ -1,0 +1,9 @@
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - RACK_ENV=production
+    command: ["bundle", "exec", "rackup", "config.ru", "-p", "80", "-s", "thin", "-o", "0.0.0.0"]
