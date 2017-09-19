@@ -12,3 +12,9 @@ http://blog.honeybadger.io/how-to-deploy-a-sinatra-app-in-docker-to-amazon-s-ec2
 https://www.packtpub.com/books/content/quick-start-your-first-sinatra-application
 
 http://www.scotthelm.com/2016/06/07/new-rails-app-with-docker.html
+
+### notes
+
+change the command to be a script
+
+
