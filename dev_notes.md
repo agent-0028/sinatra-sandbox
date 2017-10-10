@@ -13,8 +13,8 @@ https://www.packtpub.com/books/content/quick-start-your-first-sinatra-applicatio
 
 http://www.scotthelm.com/2016/06/07/new-rails-app-with-docker.html
 
+https://medium.com/@fbzga/how-to-cache-bundle-install-with-docker-7bed453a5800
+
 ### notes
 
-change the command to be a script
-
-
+[x] change the command to be a script
