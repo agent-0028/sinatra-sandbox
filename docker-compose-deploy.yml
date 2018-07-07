@@ -2,7 +2,8 @@ version: '2'
 services:
   app:
     image: 'tinisi/agent-0028-sinatra-sandbox:v0.1'
-    build: .
+    ports:
+      - "80:80"
     ports:
       - "80:80"
     environment:

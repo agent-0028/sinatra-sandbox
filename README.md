@@ -26,3 +26,34 @@ Now that this is all done, time to take a break. This will nicely shut down the 
 `docker-compose exec app rspec spec`
 
 `docker-compose stop`
+
+## Building an image
+
+Log in to Docker Hub.
+
+Update the tag by changing the `image` field in `docker-compose-build.yml`.
+
+```
+docker-compose --file docker-compose-build.yml build
+# for example 'tinisi/agent-0028-sinatra-sandbox:v0.1'
+docker push REPO/IMAGE_NAME:TAG
+```
+
+## Starting app on remote Docker host
+
+Make sure your environment is set up to point to a remote Docker host.
+
+Double check the tag specified in the `image` fiels of `docker-compose-deploy.yml`.
+
+```
+docker-compose \
+--file docker-compose-deploy.yml \
+up \
+--detach
+```
+
+## To poke around in a running remote image
+
+```
+docker-compose exec app bash
+```
