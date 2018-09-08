@@ -13,6 +13,6 @@ describe 'LunaCast Podcast App' do
   it "says hello...wow" do
     get '/'
     expect(last_response).to be_ok
-    expect(last_response.body).to include('Hello from sinatra! Wow!???!??')
+    expect(last_response.body).to include('Hello from sinatra! Wow!')
   end
 end
