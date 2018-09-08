@@ -17,7 +17,7 @@ Since `bundle install` and `apt-get` are run as part of the build process (check
 
 * Run `docker-compose stop`
 
-Now that this is all done, time to take a break. This will nicely shut down the container without deleting any of the build artifacts???
+Now that this is all done, time to take a break. This will nicely shut down the container without deleting any of the build artifacts.
 
 ## Daily Operations
 

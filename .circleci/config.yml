@@ -23,6 +23,9 @@ jobs:
       #   paths:
       #     - vendor/bundle
 
+      # start the container
+      - run: docker-compose up -d
+
       # Run specs
       - run: docker-compose exec app rspec spec
 
