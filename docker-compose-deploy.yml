@@ -7,4 +7,4 @@ services:
     environment:
       - RACK_ENV=production
     # command: ["bundle", "exec", "rackup", "config.ru", "-p", "80", "-s", "thin", "-o", "0.0.0.0"]
-    command: ["./start_service.sh"]
+    command: ["/var/www/docker-sinatra/start_service.sh"]

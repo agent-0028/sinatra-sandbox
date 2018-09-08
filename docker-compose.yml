@@ -8,4 +8,4 @@ services:
       - ./:/var/www/docker-sinatra
     environment:
       - RACK_ENV=development
-    command: ["./start_service.sh"]
+    command: ["/var/www/docker-sinatra/start_service.sh"]
