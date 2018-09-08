@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/sinatra-sandbox
+    docker:
+      - image: circleci/ruby:2.3.1
+        environment:
+          RACK_ENV: production
+    steps:
+      - setup_remote_docker
+      - checkout
+
+      # # Restore bundle cache
+      # - type: cache-restore
+      #   key: sinatra-demo-{{ checksum "Gemfile.lock" }}
+
+      # # Bundle install dependencies
+      # - run: bundle install --path vendor/bundle
+
+      # # Store bundle cache
+      # - type: cache-save
+      #   key: sinatra-demo-{{ checksum "Gemfile.lock" }}
+      #   paths:
+      #     - vendor/bundle
+
+      # Run specs
+      - run: docker-compose exec app rspec spec
+
+      # Save artifacts
+      # - type: store_test_results
+      #   path: /tmp/test-results

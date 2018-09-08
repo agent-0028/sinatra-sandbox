@@ -1,11 +1,10 @@
 version: '2'
 services:
   app:
-    image: 'tinisi/agent-0028-sinatra-sandbox:v0.1'
-    ports:
-      - "80:80"
+    image: 'tinisi/agent-0028-sinatra-sandbox:v0.2'
     ports:
       - "80:80"
     environment:
       - RACK_ENV=production
-    command: ["bundle", "exec", "rackup", "config.ru", "-p", "80", "-s", "thin", "-o", "0.0.0.0"]
+    # command: ["bundle", "exec", "rackup", "config.ru", "-p", "80", "-s", "thin", "-o", "0.0.0.0"]
+    command: ["./start_service.sh"]
