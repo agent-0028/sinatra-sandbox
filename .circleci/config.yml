@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/sinatra-sandbox
     docker:
-      - image: circleci/ruby:2.3.1
+      - image: circleci/ruby:2.3.5-jessie
         environment:
           RACK_ENV: production
     steps:
