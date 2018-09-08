@@ -23,11 +23,11 @@ jobs:
       #   paths:
       #     - vendor/bundle
 
-      - run: docker-compose up -d
+      - run: docker-compose up -d -f docker-compose-build.yml
 
-      - run: docker-compose exec app rspec spec
+      - run: docker-compose exec app rspec spec -f docker-compose-build.yml
 
-      - run: docker-compose down
+      - run: docker-compose down -f docker-compose-build.yml
 
       # Save artifacts
       # - type: store_test_results
