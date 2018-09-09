@@ -1,7 +1,7 @@
 version: '2'
 services:
   app:
-    image: 'tinisi/agent-0028-sinatra-sandbox:v0.2'
+    image: tinisi/agent-0028-sinatra-sandbox:${CIRCLE_BRANCH}-${CIRCLE_SHA1}
     ports:
       - "80:80"
     environment:

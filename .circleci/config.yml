@@ -23,11 +23,13 @@ jobs:
       #   paths:
       #     - vendor/bundle
 
-      - run: docker-compose --file docker-compose-build.yml build
+      - run: docker-compose --file docker-compose-build.yml up -d
 
-      - run: docker-compose --file docker-compose-build.yml run app rspec spec
+      - run: docker-compose --file docker-compose-build.yml exec app rspec spec
 
-      # - run: docker-compose --file docker-compose-build.yml down
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      - run: docker push tinisi/agent-0028-sinatra-sandbox:${CIRCLE_BRANCH}-${CIRCLE_SHA1}
 
       # Save artifacts
       # - type: store_test_results
