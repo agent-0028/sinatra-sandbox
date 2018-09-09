@@ -13,8 +13,8 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    puts ENV['RACK_ENV']
+    environment = ENV['RACK_ENV']
     @episodes = Sinatra::App::Models::Episode.all
-    "Hello from sinatra! Wow! The time is #{ Time.now.to_i } on #{ `hostname` }! #{ @episodes[0][:title] }"
+    "Hello from sinatra! Wow! The time is #{ Time.now.to_i } on #{ `hostname` }!<br>#{ environment }<br>#{ @episodes[0][:title] }"
   end
 end
