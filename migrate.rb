@@ -9,4 +9,4 @@ DB.create_table :episodes do
 end
 
 dataset = DB[:episodes]
-dataset.insert(id: 1, title: 'some title', datetime: '2017-09-21')
+dataset.insert(id: 1, title: 'a title', datetime: '1966-05-18')
