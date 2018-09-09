@@ -6,5 +6,4 @@ services:
       - "80:80"
     environment:
       - RACK_ENV=production
-    # command: ["bundle", "exec", "rackup", "config.ru", "-p", "80", "-s", "thin", "-o", "0.0.0.0"]
-     command: ["/home/circleci/sinatra-sandbox/start_service.sh"]
+    command: ["/var/www/docker-sinatra/start_service.sh"]
