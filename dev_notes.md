@@ -21,7 +21,9 @@ https://medium.com/@fbzga/how-to-cache-bundle-install-with-docker-7bed453a5800
 
 DOCKER_USER
 DOCKER_PASS
-
+CIRCLE_BRANCH
+CIRCLE_SHA1
+CIRCLE_BUILD_NUM
 
 ??/??/????
 

@@ -8,20 +8,8 @@ jobs:
           RACK_ENV: production
     steps:
       - setup_remote_docker
+
       - checkout
-
-      # # Restore bundle cache
-      # - type: cache-restore
-      #   key: sinatra-demo-{{ checksum "Gemfile.lock" }}
-
-      # # Bundle install dependencies
-      # - run: bundle install --path vendor/bundle
-
-      # # Store bundle cache
-      # - type: cache-save
-      #   key: sinatra-demo-{{ checksum "Gemfile.lock" }}
-      #   paths:
-      #     - vendor/bundle
 
       - run: docker-compose --file docker-compose-build.yml up -d
 
@@ -30,7 +18,3 @@ jobs:
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
       - run: docker push tinisi/agent-0028-sinatra-sandbox:${CIRCLE_BRANCH}-build-${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}
-
-      # Save artifacts
-      # - type: store_test_results
-      #   path: /tmp/test-results

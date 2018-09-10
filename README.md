@@ -6,6 +6,8 @@
 
 You should be able to do all your development and testing in the Docker container without using your locally installed Ruby. Of course, if you know what you are doing and want to run this against local Ruby knock yourself out.
 
+The default, `docker-compose.yml` is set up for development, this folder is linked to `/var/www/docker-sinatra` in the container.
+
 * Install Docker for your operating system
 * Run `docker-compose up -d`
 
@@ -15,9 +17,9 @@ The first time you run the commands below, you should see this output after the 
 
 Since `bundle install` and `apt-get` are run as part of the build process (check the Dockerfile), you will need to rebuild if you change the Gemfile or modify other OS level dependencies.
 
-* Run `docker-compose stop`
-
 Now that this is all done, time to take a break. This will nicely shut down the container without deleting any of the build artifacts.
+
+* Run `docker-compose stop`
 
 ## Daily Operations
 
@@ -31,7 +33,7 @@ Now that this is all done, time to take a break. This will nicely shut down the 
 
 Log in to Docker Hub.
 
-Update the tag by changing the `image` field in `docker-compose-build.yml`.
+Update the tag by changing the `image` field in `docker-compose-build.yml` and `docker-compose-deploy.yml`.
 
 ```
 docker-compose --file docker-compose-build.yml build
