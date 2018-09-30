@@ -19,6 +19,8 @@ https://medium.com/@fbzga/how-to-cache-bundle-install-with-docker-7bed453a5800
 
 9/9/2018
 
+depending on hese environment vars
+
 DOCKER_USER
 DOCKER_PASS
 CIRCLE_BRANCH

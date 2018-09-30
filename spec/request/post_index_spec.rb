@@ -10,10 +10,8 @@ describe 'LunaCast Podcast App' do
     App
   end
 
-  it "says hello...wow" do
-    get '/'
+  it "accepts a post without error" do
+    post '/'
     expect(last_response).to be_ok
-    expect(last_response.body).to include('The time is')
-    expect(last_response.body).to include('woot')
   end
 end

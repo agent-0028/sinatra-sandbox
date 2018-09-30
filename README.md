@@ -25,7 +25,9 @@ Now that this is all done, time to take a break. This will nicely shut down the 
 
 `docker-compose start`
 
-`docker-compose exec app rspec spec`
+`docker-compose exec app rspec spec/request`
+
+`docker-compose exec app rspec spec/unot`
 
 `docker-compose stop`
 
@@ -45,7 +47,7 @@ docker push REPO/IMAGE_NAME:TAG
 
 Make sure your environment is set up to point to a remote Docker host.
 
-Double check the tag specified in the `image` fiels of `docker-compose-deploy.yml`.
+Double check the tag specified in the `image` field of `docker-compose-deploy.yml`.
 
 ```
 docker-compose \

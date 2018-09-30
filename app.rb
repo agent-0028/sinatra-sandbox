@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require "sinatra/json"
 require_relative 'models'
+require_relative 'services'
 
 class App < Sinatra::Base
   configure :development do
@@ -15,6 +17,24 @@ class App < Sinatra::Base
   get '/' do
     environment = ENV['RACK_ENV']
     @episodes = Sinatra::App::Models::Episode.all
-    "Hello from sinatra! Wow! The time is #{ Time.now.to_i } on #{ `hostname` }!<br>#{ environment }<br>#{ @episodes[0][:title] }"
+    thing = Sinatra::App::Services.thing
+    header = <<-FOO
+The time is #{ Time.now.to_i } on #{ `hostname` }!<br/>
+#{ environment }<br>
+#{ thing }<br>
+FOO
+    episode_string = ''
+    @episodes.each do |episode|
+      # episode_string = json episode[:title]
+      episode_string.concat(episode[:title])
+      episode_string.concat(': ')
+      episode_string.concat(episode[:datetime].strftime('%F'))
+      episode_string.concat("<br>\n")
+    end
+    header.concat(episode_string)
+  end
+
+  post '/' do
+    "sdsdsdsd"
   end
 end

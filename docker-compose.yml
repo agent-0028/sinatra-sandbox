@@ -4,8 +4,8 @@ services:
     build: .
     ports:
       - "80:80"
-    # volumes:
-    #   - .:/var/www/docker-sinatra
+    volumes:
+      - .:/var/www/docker-sinatra
     environment:
       - RACK_ENV=development
     command: ["/var/www/docker-sinatra/start_service.sh"]
