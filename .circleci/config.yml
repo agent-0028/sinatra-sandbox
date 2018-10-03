@@ -11,10 +11,22 @@ jobs:
 
       - checkout
 
-      - run: docker-compose --file docker-compose-build.yml up -d
+      - run:
+          name: Build image and start app
+          command: docker-compose --file docker-compose-build.yml up -d
 
-      - run: docker-compose --file docker-compose-build.yml exec app rspec spec
+      - run:
+          name: Unit tests
+          command: docker-compose --file docker-compose-build.yml exec app rspec spec/unit
 
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Request tests
+          command: docker-compose --file docker-compose-build.yml exec app rspec spec/request
 
-      - run: docker push tinisi/agent-0028-sinatra-sandbox:${CIRCLE_BRANCH}-build-${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}
+      - run:
+          name: Log in to Dockerhub
+          command: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+
+      - run:
+          name: Push image to Dockerhub
+          command: docker push tinisi/agent-0028-sinatra-sandbox:${CIRCLE_BRANCH}-build-${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}
