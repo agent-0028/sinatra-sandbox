@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test-n-build:
     working_directory: ~/sinatra-sandbox
     docker:
       - image: circleci/ruby:2.3.5-jessie
@@ -30,3 +30,30 @@ jobs:
       - run:
           name: Push image to Dockerhub
           command: docker push tinisi/agent-0028-sinatra-sandbox:${CIRCLE_BRANCH}-build-${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}
+
+  deploy:
+    working_directory: ~/sinatra-sandbox
+    docker:
+      - image: circleci/python:2.7.15-jessie
+    steps:
+      - add_ssh_keys
+
+      - checkout
+
+      - run: ssh-keyscan trinity.tinisi.com >> /home/circleci/.ssh/known_hosts
+
+      - run: sudo pip install 'Fabric==1.13.1'
+
+      - run: cd ~/sinatra-sandbox/scripts && fab test_connection --hosts=trinity.tinisi.com --user=tinisi
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test-n-build
+      - deploy:
+          requires:
+            - test-n-build
+          filters:
+            branches:
+              only: add-cd
