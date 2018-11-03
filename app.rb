@@ -18,11 +18,12 @@ class App < Sinatra::Base
     environment = ENV['RACK_ENV']
     @episodes = Sinatra::App::Models::Episode.all
     thing = Sinatra::App::Services.thing
-    header = <<-FOO
+    header = <<-HEADER
 The time is #{ Time.now.to_i } on #{ `hostname` }!<br/>
 #{ environment }<br>
 #{ thing }<br>
-FOO
+Yah!<br>
+HEADER
     episode_string = ''
     @episodes.each do |episode|
       # episode_string = json episode[:title]
