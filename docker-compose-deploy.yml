@@ -1,8 +1,6 @@
 version: '2'
 services:
   app:
-    # image: tinisi/agent-0028-sinatra-sandbox:bootstrap-n-setup-build-19-d992c89c09f420dafc434c1289038d993403e341
-    # image: tinisi/agent-0028-sinatra-sandbox:${CIRCLE_BRANCH}-build-${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}
     image: tinisi/agent-0028-sinatra-sandbox:${DEPLOY_TAG}
     ports:
       - "80:80"
