@@ -73,10 +73,10 @@ workflows:
             - test
           filters:
             branches:
-              only: add-cd
+              only: develop
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only: add-cd
+              only: develop
