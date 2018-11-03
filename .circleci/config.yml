@@ -37,6 +37,8 @@ jobs:
       - image: circleci/python:2.7.15-jessie
     steps:
       - add_ssh_keys
+        fingerprints:
+          - "89:1f:a0:cc:12:99:1e:62:cb:64:00:a1:66:f4:ca:f7"
 
       - checkout
 
