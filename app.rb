@@ -22,11 +22,10 @@ class App < Sinatra::Base
 The time is #{ Time.now.to_i } on #{ `hostname` }!<br/>
 #{ environment }<br>
 #{ thing }<br>
-Yah! Yah!?<br>
 HEADER
     episode_string = ''
     @episodes.each do |episode|
-      # episode_string = json episode[:title]
+      # TODO: Switch this to a template, this string concat crap sucks
       episode_string.concat(episode[:title])
       episode_string.concat(': ')
       episode_string.concat(episode[:datetime].strftime('%F'))
