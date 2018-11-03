@@ -42,9 +42,11 @@ jobs:
 
       - run: ssh-keyscan trinity.tinisi.com >> /home/circleci/.ssh/known_hosts
 
-      - run: sudo pip install 'Fabric==1.13.1'
+      - run: git clone git@github.com:tinisi/grosgrain.git
 
-      - run: cd ~/sinatra-sandbox/scripts && fab test_connection --hosts=trinity.tinisi.com --user=tinisi
+      - run: cd ~/sinatra-sandbox/grosgrain/fabric && pipenv install --ignore-pipfile
+
+      - run: cd ~/sinatra-sandbox/grosgrain/fabric && pipenv run fab test_connection --hosts=trinity.tinisi.com --user=tinisi
 
 workflows:
   version: 2

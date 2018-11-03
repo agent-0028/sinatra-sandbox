@@ -9,16 +9,14 @@ def test_sudo_connection():
 
 @task
 def test_connection():
-    sleep(30)
     run('ls')
 
 @task
 def docker_compose_deploy(image_tag='latest', file_path='', project_name=''):
-
     target_file_path = '~/deploy_temp/docker-compose-deploy.yml'
     put(file_path, target_file_path)
 
-    sleep(30)
+    sleep(16)
 
     with shell_env(DEPLOY_TAG=image_tag):
         run('source /home/tinisi/bin/set-docker-host-env.sh && \
