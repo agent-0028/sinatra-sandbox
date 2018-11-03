@@ -42,11 +42,11 @@ jobs:
 
       - run: ssh-keyscan trinity.tinisi.com >> /home/circleci/.ssh/known_hosts
 
-      - run: git clone git@github.com:tinisi/grosgrain.git
+      - run: git clone git@github.com:tinisi/grosgrain.git /home/circleci/grosgrain
 
-      - run: cd ~/sinatra-sandbox/grosgrain/fabric && pipenv install --ignore-pipfile
+      - run: cd ~/grosgrain/fabric && pipenv install --ignore-pipfile
 
-      - run: cd ~/sinatra-sandbox/grosgrain/fabric && pipenv run fab test_connection --hosts=trinity.tinisi.com --user=tinisi
+      - run: cd ~/grosgrain/fabric && pipenv run fab test_connection --hosts=trinity.tinisi.com --user=tinisi
 
 workflows:
   version: 2
