@@ -1,9 +1,9 @@
 version: 2
 jobs:
-  test-n-build:
+  test:
     working_directory: ~/sinatra-sandbox
     docker:
-      - image: circleci/ruby:2.3.5-jessie
+      - image: circleci/python:2.7.15-jessie
         environment:
           RACK_ENV: production
     steps:
@@ -22,6 +22,23 @@ jobs:
       - run:
           name: Request tests
           command: docker-compose --file docker-compose-build.yml exec app rspec spec/request
+
+  build:
+    working_directory: ~/sinatra-sandbox
+    docker:
+      - image: circleci/python:2.7.15-jessie
+        environment:
+          RACK_ENV: production
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Setup Environment Variables
+          command: |
+            echo 'export CI_BUILD_ID="${CIRCLE_BRANCH}-build-${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1:1:7}"' >> $BASH_ENV
+      - run:
+          name: Build image
+          command: docker-compose --file docker-compose-build.yml build
       - run:
           name: Log in to Dockerhub
           command: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
@@ -48,12 +65,18 @@ jobs:
 
 workflows:
   version: 2
-  test-and-deploy:
+  test-build-and-deploy:
     jobs:
-      - test-n-build
+      - test
+      - build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: add-cd
       - deploy:
           requires:
-            - test-n-build
+            - build
           filters:
             branches:
               only: add-cd
