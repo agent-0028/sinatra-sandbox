@@ -46,7 +46,7 @@ jobs:
 
       - run: cd ~/grosgrain/fabric && pipenv install --ignore-pipfile
 
-      - run: cd ~/grosgrain/fabric && pipenv run fab test_connection --hosts=trinity.tinisi.com --user=tinisi
+      - run: cd ~/grosgrain/fabric && pipenv run fab test_connection --hosts=nexus.tinisi.com --user=tinisi
 
 workflows:
   version: 2
