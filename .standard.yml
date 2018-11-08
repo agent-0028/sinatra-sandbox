@@ -1,5 +1,11 @@
 format: progress
 
-# ignore:
-#   - 'Gemfile':
-#     - Layout/TrailingBlankLines
+ignore:
+  - './**/*':
+    - Style/StringLiterals
+    - Layout/ClosingHeredocIndentatio
+    - Layout/SpaceInsideStringInterpolation
+    - Layout/IndentHeredoc
+    - Style/SpecialGlobalVars
+    - Style/HashSyntax
+    - Layout/ClosingHeredocIndentation
