@@ -7,4 +7,5 @@ source 'https://rubygems.org' do
   gem 'sqlite3'
   gem 'rack-test'
   gem 'rspec'
+  gem 'standard', :require => false
 end

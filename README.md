@@ -31,6 +31,8 @@ Now that this is all done, time to take a break. This will nicely shut down the 
 
 `docker-compose stop`
 
+`docker-compose exec app bundle exec standard`
+
 ## Building an image
 
 Log in to Docker Hub.

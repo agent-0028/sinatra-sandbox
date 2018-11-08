@@ -1,0 +1,5 @@
+format: progress
+
+# ignore:
+#   - 'Gemfile':
+#     - Layout/TrailingBlankLines
