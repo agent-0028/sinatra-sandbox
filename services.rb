@@ -2,7 +2,7 @@ module Sinatra
   module App
     module Services
       def self.thing
-        'woot'
+        "woot"
       end
     end
   end

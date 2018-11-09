@@ -1,6 +1,6 @@
-require 'sequel'
+require "sequel"
 
-DB = Sequel.connect('sqlite://podcast.db')
+DB = Sequel.connect("sqlite://podcast.db")
 
 module Sinatra
   module App
