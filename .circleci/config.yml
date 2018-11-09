@@ -22,6 +22,9 @@ jobs:
       - run:
           name: Request tests
           command: docker-compose --file docker-compose-build.yml exec app rspec spec/request
+      - run:
+          name: Lint with StandardRB
+          command: docker-compose --file docker-compose-build.yml exec app bundle exec standard
 
   build:
     working_directory: ~/sinatra-sandbox
