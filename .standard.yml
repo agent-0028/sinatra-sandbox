@@ -7,5 +7,4 @@ ignore:
     - Layout/SpaceInsideStringInterpolation
     - Layout/IndentHeredoc
     - Style/SpecialGlobalVars
-    - Style/HashSyntax
     - Layout/ClosingHeredocIndentation
