@@ -22,7 +22,7 @@ class App < Sinatra::Base
 The time is #{ Time.now.to_i } on #{ `hostname` }!<br/>
 #{ environment }<br>
 #{ thing }<br>
-HEADER
+    HEADER
     episode_string = ""
     @episodes.each do |episode|
       # TODO: Switch this to a template, this string concat crap sucks

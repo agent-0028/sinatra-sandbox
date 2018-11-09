@@ -2,8 +2,6 @@ format: progress
 
 ignore:
   - './**/*':
-    - Layout/ClosingHeredocIndentatio
     - Layout/SpaceInsideStringInterpolation
     - Layout/IndentHeredoc
     - Style/SpecialGlobalVars
-    - Layout/ClosingHeredocIndentation
