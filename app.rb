@@ -22,6 +22,7 @@ class App < Sinatra::Base
       The time is #{Time.now.to_i} on #{`hostname`}!<br/>
       #{environment}<br>
       #{thing}<br>
+      Yeah buddy!!!<br>
     HEADER
     episode_string = ""
     @episodes.each do |episode|
