@@ -1,5 +1,1 @@
 format: progress
-
-ignore:
-  - './**/*':
-    - Style/SpecialGlobalVars
