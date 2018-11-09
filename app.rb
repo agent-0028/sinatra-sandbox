@@ -19,9 +19,9 @@ class App < Sinatra::Base
     @episodes = Sinatra::App::Models::Episode.all
     thing = Sinatra::App::Services.thing
     header = <<-HEADER
-The time is #{ Time.now.to_i } on #{ `hostname` }!<br/>
-#{ environment }<br>
-#{ thing }<br>
+The time is #{Time.now.to_i} on #{`hostname`}!<br/>
+#{environment}<br>
+#{thing}<br>
     HEADER
     episode_string = ""
     @episodes.each do |episode|
